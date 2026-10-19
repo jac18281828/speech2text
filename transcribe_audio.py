@@ -142,11 +142,11 @@ def main() -> int:
     output_prefix = choose_output_prefix(audio_path, args.output_prefix)
     output_prefix.parent.mkdir(parents=True, exist_ok=True)
 
-    text_path = output_prefix.with_suffix(".txt")
+    text_path = output_prefix.with_name(f"{output_prefix.name}.txt")
     text_path.write_text(transcript, encoding="utf-8")
 
     if not args.no_json:
-        json_path = output_prefix.with_suffix(".json")
+        json_path = output_prefix.with_name(f"{output_prefix.name}.json")
         json_path.write_text(
             json.dumps(
                 {
@@ -162,7 +162,7 @@ def main() -> int:
 
     print(f"Wrote transcript to {text_path}")
     if not args.no_json:
-        print(f"Wrote segment JSON to {output_prefix.with_suffix('.json')}")
+        print(f"Wrote segment JSON to {json_path}")
     return 0
 
 
