@@ -1,0 +1,6 @@
+.venv/
+.cache/
+.DS_Store
+__pycache__/
+*.transcript.txt
+*.transcript.json
