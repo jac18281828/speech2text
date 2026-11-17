@@ -42,8 +42,8 @@ If you want VAD-based silence trimming, add `--vad-filter`.
 | Model | Approx. size | Speed | Notes |
 | --- | --- | --- | --- |
 | `small.en` | ~0.5 GB | Fast (~4 min for 30 min of audio, CPU, int8) | Script default. Good draft; mishears names and jargon. |
-| `distil-large-v3` | ~1.4 GB | Slower than `small.en`, faster than `large-v3` | Near `large-v3` English accuracy. Recommended starting point. |
-| `large-v3` | ~3 GB | Slowest | Most accurate. |
+| `distil-large-v3` | ~1.4 GB | ~4 min for 30 min of audio (CPU, int8) | Faster than `large-v3`. Mixed accuracy on names and jargon; coarse timestamps. |
+| `large-v3` | ~3 GB | Slowest | Most accurate expected. |
 
 The first run with a model downloads it to `./.cache`.
 

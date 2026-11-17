@@ -7,9 +7,9 @@ Instructions for agents running transcriptions in this repo.
 The script default is `small.en`. Until the user states a model preference,
 never run it silently. Before the first transcription in a session, offer:
 
-- `distil-large-v3`: recommended starting point; near `large-v3` English accuracy, faster.
-- `large-v3`: most accurate, slowest.
 - `small.en`: fast draft; mishears names and jargon.
+- `distil-large-v3`: faster than `large-v3`; mixed accuracy on names and jargon, coarse timestamps.
+- `large-v3`: most accurate expected, slowest.
 
 If the user has already stated a choice in the conversation, use it without asking.
 
