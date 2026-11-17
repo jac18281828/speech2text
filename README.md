@@ -13,7 +13,7 @@ python3 -m venv .venv
 
 ```bash
 ./transcribe.sh /path/to/audio.mp3
-./transcribe.sh /path/to/audio.mp3 --model distil-large-v3 --language en --vad-filter
+./transcribe.sh /path/to/audio.mp3 --model large-v3 --language en --vad-filter
 ```
 
 Default behavior:
@@ -25,9 +25,8 @@ Default behavior:
 Common options:
 
 ```bash
-./transcribe.sh /path/to/audio.mp3 --model distil-large-v3 --language en
+./transcribe.sh /path/to/audio.mp3 --model small.en
 ./transcribe.sh /path/to/audio.mp3 --model large-v3 --language en
-./transcribe.sh /path/to/audio.mp3 --model base.en
 ./transcribe.sh /path/to/audio.mp3 --output-prefix /tmp/my_transcript
 ./transcribe.sh /path/to/audio.mp3 --stdout
 ./transcribe.sh /path/to/audio.mp3 --task translate
@@ -35,15 +34,14 @@ Common options:
 
 If you want VAD-based silence trimming, add `--vad-filter`.
 
-`--language en` is implied only for `*.en` models; pass it for `distil-large-v3` and `large-v3` on English audio.
+`--language en` is implied only for `*.en` models; pass it for `large-v3` on English audio.
 
 ## Choosing a model
 
-| Model | Approx. size | Speed | Notes |
-| --- | --- | --- | --- |
-| `small.en` | ~0.5 GB | Fast (~4 min for 30 min of audio, CPU, int8) | Script default. Good draft; mishears names and jargon. |
-| `distil-large-v3` | ~1.4 GB | ~4 min for 30 min of audio (CPU, int8) | Faster than `large-v3`. Mixed accuracy on names and jargon; coarse timestamps. |
-| `large-v3` | ~3 GB | Slowest | Most accurate expected. |
+| Model | Role | Approx. size | Speed (30 min of audio, CPU, int8) | Notes |
+| --- | --- | --- | --- | --- |
+| `small.en` | Default | ~0.5 GB | ~4 min, fast | Mishears names and jargon. |
+| `large-v3` | Fallback | ~3 GB | ~20 min including first download | Most accurate expected. |
 
 The first run with a model downloads it to `./.cache`.
 
